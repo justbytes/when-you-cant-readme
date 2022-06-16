@@ -1,35 +1,39 @@
-# Take a Note
+# When you can't ReadMe
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
 ## Description
-My motivation for this project was to create something to help me keep track of my random thoughts. I built it so when I have a million dollar idea I can write it down and it will always stay on the site so I don't lose it. This solves my problem of alwasys forgetting great ideas. I learned how to use paths. 
 
-## Table of Contents 
+My motivation for this app was to streamline the process of making quality readme.md files. When this app is run it will go through a series of questions for the user to answer that will end up generating the new readme in a assets folder for them to copy and paste into there new app. This app will save time and give you a consistent layout.
+
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Tests](#tests)
 - [Questions](#questions)
 
 ### Installation
 
-To install necessary dependencies, run the following command
-Requires node.js to run 
+To install necessary dependencies, run the following commands:
+
+```md
+npm init -y
+npm i
+```
 
 ### Usage
-na
 
+To start this app run the following command:
 
-### Contrnode ibuting
-Fork repo and submit pull request.
+```md
+npm run start || node index.js
+```
 
-### Tests
+### Contributing
 
-To run tests, run the following command:
-
-There are no tests for this site.
+If you would like to help please fork the repo and submit a pull request.
 
 ### Questions
-Please reach out to me on github for any questions. Github username: jessemarino
+
+If you have any questions please reach out via Github, my username is jessemarino.
