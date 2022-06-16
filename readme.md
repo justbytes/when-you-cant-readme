@@ -32,7 +32,7 @@ npm run start || node index.js
 
 ### Contributing
 
-If you would like to help please fork the repo and submit a pull request.
+If you would like to make it your own please fork the repo and customize!
 
 ### Questions
 
