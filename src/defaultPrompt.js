@@ -1,8 +1,5 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
-
-const readmeQuestions = () => {
-  return inquirer.prompt([
+module.exports = {
+  defaultPrompt: [
     {
       type: "input",
       message: "What the title of you project?",
@@ -11,17 +8,37 @@ const readmeQuestions = () => {
     {
       type: "input",
       message: "Write a description of your project.",
-      name: "description",
+      name: "overview",
     },
     {
       type: "input",
-      message: "What is the command line to install necessary dependencies? ",
-      name: "init",
+      message: "What are the required dependencies for your project?",
+      name: "requiredDependencies",
     },
     {
       type: "input",
-      message: "How do you use your project?",
+      message: "What is the command line to install necessary dependencies?",
+      name: "installation",
+    },
+    {
+      type: "input",
+      message: "What are the setup commands for the environment?",
+      name: "setup",
+    },
+    {
+      type: "input",
+      message: "What commands are needed to start/use your project?",
       name: "usage",
+    },
+    {
+      type: "input",
+      message: "What commands are needed to setup the testing environment?",
+      name: "testSetup",
+    },
+    {
+      type: "input",
+      message: "What commands are needed to run the tests?",
+      name: "tests",
     },
     {
       type: "list",
@@ -85,63 +102,26 @@ const readmeQuestions = () => {
       message: "Please give contact info for users with questions.",
       name: "questions",
     },
-  ]);
+    {
+      type: "list",
+      message: "Where would you like to save the README?",
+      name: "saveLocation",
+      choices: [
+        {
+          name: "Overwrite root README.md",
+          value: "root",
+        },
+        {
+          name: "Create new file with custom name",
+          value: "custom",
+        },
+      ],
+    },
+    {
+      type: "input",
+      message: "Enter the name for your README file (without .md extension):",
+      name: "fileName",
+      when: (answers) => answers.saveLocation === "custom",
+    },
+  ],
 };
-
-const genReadme = ({
-  title,
-  description,
-  init,
-  usage,
-  license,
-  contributing,
-  test,
-  questions,
-}) =>
-  `# ${title}
-
-${license}
-
-## Description
-${description}
-
-## Table of Contents 
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
-
-### Installation
-
-To install necessary dependencies, run the following command
-${init}
-
-### Usage
-${usage}
-
-
-### Contrnode ibuting
-${contributing}
-
-### Tests
-
-To run tests, run the following command:
-
-${test}
-
-### Questions
-${questions}
-`;
-
-const init = () => {
-  readmeQuestions()
-    .then((answers) =>
-      fs.writeFileSync("./assets/newreader.md", genReadme(answers))
-    )
-    .then(() => console.log("Successfully wrote to newreader.md"))
-    .catch((err) => console.error(err));
-};
-
-init();
