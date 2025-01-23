@@ -1,6 +1,4 @@
-# When you can't ReadMe
-
-[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+# Read Me Generator
 
 ## Description
 
